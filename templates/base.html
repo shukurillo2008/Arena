@@ -102,18 +102,18 @@
 
                     <div class="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
                         <div class="header-search text-end d-flex align-items-center">
-                            <form class="header-search-form d-sm-block d-none">
+                            <form class="header-search-form d-sm-block d-none" name="get" action="{% url 'arena_url' %}">
                                 <div class="axil-search form-group">
                                     <button type="submit" class="search-button"><i class="fal fa-search"></i></button>
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" placeholder="Search" name="q">
                                 </div>
                             </form>
                             <div class="mobile-search-wrapper d-sm-none d-block">
                                 <button class="search-button-toggle"><i class="fal fa-search"></i></button>
-                                <form class="header-search-form">
+                                <form class="header-search-form" method="get" action="{% url 'arena_url' %}">
                                     <div class="axil-search form-group">
                                         <button type="submit" class="search-button"><i class="fal fa-search"></i></button>
-                                        <input type="text" class="form-control" placeholder="Search">
+                                        <input type="text" class="form-control" placeholder="Search" name="q">
                                     </div>
                                 </form>
                             </div>

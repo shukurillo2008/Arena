@@ -3,7 +3,9 @@
 {% block content %}
 
         <!-- Start Featured Area  -->
+        
         <div class="axil-featured-post axil-section-gap bg-color-grey">
+            
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -11,6 +13,13 @@
                             <h2 class="title">Treners</h2>
                         </div>
                     </div>
+
+                    <form class="header-search-form d-sm-block d-none" name="get" action="{% url 'trener_url' %}">
+                        <div class="axil-search form-group">
+                            <button type="submit" class="search-button"><i class="fal fa-search"></i></button>
+                            <input type="text" class="form-control" placeholder="Search Trener" name="q">
+                        </div>
+                    </form>
                 </div>
                 <div class="row">
                     {% for trener in treners %}

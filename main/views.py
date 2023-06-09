@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from . import models
 from random import Random
-
+from django.db.models import Q
 
 
 def index(request):
@@ -39,9 +39,18 @@ def region(request):
 
 
 def arena(request):
-    arena = models.Arena.objects.all()
-    region = models.Region.objects.all()
-    sport = models.Category.objects.all()
+    q = request.GET.get('q')
+    if q is not None:
+        arena = models.Arena.objects.filter( Q(name__icontains = q) | Q(location__name__icontains = q) | Q(location__region__name__icontains = q))
+        region = models.Region.objects.all()
+        sport = models.Category.objects.all()
+        
+    else:
+        arena = models.Arena.objects.all()
+        region = models.Region.objects.all()
+        sport = models.Category.objects.all()
+
+
     context = {
         "arena":arena,
         "region":region,
@@ -71,9 +80,17 @@ def arena_detail(request, id):
 
 
 def trener(request):
-    trener = models.Trener.objects.all()
-    region = models.Region.objects.all()
-    sport = models.Category.objects.all()
+
+    q = request.GET.get('q')
+
+    if q is not None:
+        trener = models.Trener.objects.filter( Q(name__icontains=q) | Q(l_name__icontains = q) | Q(sport__name__icontains = q))
+        region = models.Region.objects.all()
+        sport = models.Category.objects.all()
+    else:
+        trener = models.Trener.objects.all()
+        region = models.Region.objects.all()
+        sport = models.Category.objects.all()
 
     context = {
         "treners":trener,
