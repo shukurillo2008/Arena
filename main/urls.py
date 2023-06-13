@@ -12,3 +12,5 @@ urlpatterns = [
     path('sport/<int:id>', views.sport_trener, name="sport_trener_url"),
     path('sport/', views.sport_trener ,name="sport_trener")
 ]
+
+# Slug
