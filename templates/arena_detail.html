@@ -114,14 +114,15 @@
                             <div class="axil-single-widget widget widget_postlist mb--30">
                                 <h5 class="widget-title">Sports</h5>
                                 <div class="post-medium-block">
-
+                                    {% for sport in arena.sport.all %}
                                     <!-- Start Single Post  -->
                                     <div class="content-block post-medium mb--20">
                                         <div class="post-content">
-                                            <h6 class="title">{{arena.sport.name}}</h6>
+                                            <h6 class="title">{{sport}}</h6>
                                         </div>
                                     </div>
                                     <!-- End Single Post  -->
+                                    {% endfor %}
                                 </div>
                             </div>
 
